@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Challenge</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <!--  Context:  this_user, opponent_user -->
+
+    <div id="main_container">
+      <div id="inner_container2">
+        <div class="welcome_container">
+          <h2 id="welcome">
+            Hello {{this_user.first_name}}, Create a Challenge!
+          </h2>
+          <a id="logout" href="/user/logout">Log Out</a>
+        </div>
+
+        <!-- display error messages here -->
+        {% for error in messages %}
+        <p class="errors">{{ error}}</p>
+        {% endfor %}
+
+        <div id="all_challenge_container">
+          <div>
+            <form
+              action="/tennis/{{opponent_user.id}}/create"
+              method="POST"
+              name="add_challenge"
+              class="forms"
+            >
+              {% csrf_token %}
+              <input type="hidden" name="which_form" value="add_challenge" />
+
+              <div>
+                <label for="tennis_court_name">Tennis Court Name</label>
+                <input
+                  type="text"
+                  id="tennis_court_name"
+                  name="tennis_court_name"
+                />
+              </div>
+              <div>
+                <label for="tennis_court_addr">Tennis Court Address</label>
+                <input
+                  type="text"
+                  id="tennis_court_addr"
+                  name="tennis_court_addr"
+                />
+              </div>
+              <div>
+                <label for="game_date">Game Date</label>
+                <input type="date" id="game_date" name="game_date" />
+              </div>
+              <div>
+                <label for="game_time">Game Time</label>
+                <input type="time" id="game_time" name="game_time" />
+              </div>
+              <div>
+                <label for="comments">Comments/Instruction</label>
+                <textarea
+                  name="comments"
+                  id="comments"
+                  cols="30"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div id="add_buttons">
+                <a class="cancel_but" href="/dashboard">Cancel</a>
+                <button class="but3" type="Submit">Create</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

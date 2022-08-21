@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Player</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+
+<body>
+
+    <!--  Context:  this_player, this_user, age -->
+
+    <div id="main_container">
+
+        <div id="inner_container2">
+        
+            <div class="welcome_container">
+                <h2>Hello {{this_user.first_name}}!</h2>
+                 <div class="subwelcome">
+                    <a href="/dashboard">Dashboard</a>
+                    <a id="logout" href="/user/logout">Log Out</a>
+                </div>
+            </div>
+ 
+
+            <!-- display error messages here -->
+            {% for error in messages %}
+                <p class="errors">{{ error}}</p>
+            {% endfor %}
+
+            <h2>Player Profile: {{this_player.first_name}} {{this_player.last_name}}</h2>
+
+            <div>
+                <p>City: {{this_player.city_location}} </p>
+                <p>Ranking:  {{this_player.rank}}</p>
+                <p>Age: {{age}}</p>
+                 {% if this_player.gender == 'F'  %}
+                    <p>Gender: Female</p>
+                 {% else  %}
+                    <p>Gender: Male</p>
+                 {% endif  %}
+
+                <p>USTA Rating: {{this_player.usta_rating}}</p>
+                <p>Phone: {{player_phone}} </p>
+                
+                <p>Created On: {{this_player.created_at}}</p>
+                <p>Last Updated: {{this_player.updated_at}}</p>
+                
+            </div>
+
+        </div> 
+
+    </div>
+
+</body>
+</html>

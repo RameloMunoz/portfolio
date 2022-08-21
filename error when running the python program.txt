@@ -1,0 +1,133 @@
+Performing system checks...
+
+
+System check identified no issues (0 silenced).
+
+Watching for file changes with StatReloader
+
+Exception in thread django-main-thread:
+
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 219, in ensure_connection
+
+    self.connect()
+
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+
+    return func(*args, **kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 200, in connect
+
+    self.connection = self.get_new_connection(conn_params)
+
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+
+    return func(*args, **kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 187, in get_new_connection
+
+    connection = Database.connect(**conn_params)
+
+  File "/usr/local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+
+psycopg2.OperationalError: FATAL:  the database system is starting up
+
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "/usr/local/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+
+    self.run()
+
+  File "/usr/local/lib/python3.8/threading.py", line 870, in run
+
+    self._target(*self._args, **self._kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/utils/autoreload.py", line 64, in wrapper
+
+    fn(*args, **kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/core/management/commands/runserver.py", line 121, in inner_run
+
+    self.check_migrations()
+
+  File "/usr/local/lib/python3.8/site-packages/django/core/management/base.py", line 486, in check_migrations
+
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/migrations/executor.py", line 18, in __init__
+
+    self.loader = MigrationLoader(self.connection)
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/migrations/loader.py", line 53, in __init__
+
+    self.build_graph()
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/migrations/loader.py", line 220, in build_graph
+
+    self.applied_migrations = recorder.applied_migrations()
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/migrations/recorder.py", line 77, in applied_migrations
+
+    if self.has_table():
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/migrations/recorder.py", line 55, in has_table
+
+    with self.connection.cursor() as cursor:
+
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+
+    return func(*args, **kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 259, in cursor
+
+    return self._cursor()
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 235, in _cursor
+
+    self.ensure_connection()
+
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+
+    return func(*args, **kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 219, in ensure_connection
+
+    self.connect()
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 219, in ensure_connection
+
+    self.connect()
+
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+
+    return func(*args, **kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/base/base.py", line 200, in connect
+
+    self.connection = self.get_new_connection(conn_params)
+
+  File "/usr/local/lib/python3.8/site-packages/django/utils/asyncio.py", line 26, in inner
+
+    return func(*args, **kwargs)
+
+  File "/usr/local/lib/python3.8/site-packages/django/db/backends/postgresql/base.py", line 187, in get_new_connection
+
+    connection = Database.connect(**conn_params)
+
+  File "/usr/local/lib/python3.8/site-packages/psycopg2/__init__.py", line 122, in connect
+
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+
+django.db.utils.OperationalError: FATAL:  the database system is starting up

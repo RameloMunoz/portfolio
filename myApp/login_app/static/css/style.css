@@ -1,0 +1,245 @@
+/*CSS reset settings here*/
+* {
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+.header {
+    display: flex;
+    background-image: linear-gradient(90deg,#b2b450 0%, #9acf55 35%, #3e3f04 100%);  
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+}
+
+.hdr_title {
+    font-size: 70px;
+    margin-right: 60px;
+    margin-top: 75px;  
+    margin-left: 50px; 
+} 
+
+.image {
+    display: block;
+    width: 325px;
+    height: 250px;
+    margin-bottom: 20px;
+
+}
+
+#main_container {
+    width: 1200px;
+    background-image: linear-gradient(90deg,#335094 0%, #1f224d 35%, #090c36 100%);  
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: block;
+    padding-bottom: 30px;
+    color: blue;
+}
+
+
+#inner_container {
+    width: 1100px;
+    background-image: linear-gradient(90deg,#79eccf 0%, #62cad8 35%, #07625e 100%);  
+    padding: 30px;
+    display: flex;
+    border-top: 2px solid blue;
+
+}
+
+#inner_container2 {
+    width: 1100px;
+    background-image: linear-gradient(90deg,#67eb63 0%, #62d8b5 35%, #67eb63  100%);   
+    padding: 30px;
+    display: block;
+    border-top: 2px solid blue;
+
+}
+
+.errors  {
+    color: red;
+}
+
+#form_login {
+    margin-left: 200px;
+}
+
+
+
+
+ul, li {
+    padding-left: 20px; 
+    list-style-position: inside;
+}
+
+.labels{
+    padding-top: 10px; 
+}
+
+.headers {
+    font-size: 35px;
+}
+
+.welcome_container {
+    display: flex; 
+    justify-content: space-between;
+    width: 1100px; 
+    height: 50px; 
+    font-size: 20px;
+}
+
+#joiners  {
+    margin-top: 40px; 
+    font-size: 30px;  
+}
+
+.subwelcome {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#trip_dest {
+    margin-bottom: 5px; 
+}
+
+#messages {
+    margin-top: 20px;
+   
+}
+#title_space {
+    display: block;
+    padding-top: 10px;
+}
+
+#gender_hdr {
+    margin-top: 10px; 
+}
+
+#fav_space {
+    display: block;
+    padding-bottom: 5px;
+}
+
+#display_edit_container, #add_container, #all_books_container  {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 150px;
+}
+
+
+#users_who_like_edit {
+    margin-left: 25px; 
+}
+
+#users_who_like_dsp {
+    margin-left: 200px; 
+}
+
+.edit_buttons, #add_buttons {
+
+    display: flex;
+}
+
+#gender {
+    padding-left: 30px;
+}
+
+.cancel_but {
+    margin-top: 10px;
+    padding-top: 5px; 
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: rgb(26, 12, 218);
+    color: White;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    text-decoration: none; 
+    text-align: center;
+}
+
+#other_people_trips {
+    margin-top: 20px; 
+}
+#new_trip_but {
+    
+    padding-top: 5px; 
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: rgb(26, 12, 218);
+    color: White;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    text-decoration: none; 
+    text-align: center;
+}
+
+
+table, th, td {
+    width: 1100px;
+    border: 1px solid black;
+    text-align: center;
+    
+  }
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#msg_footer {
+    margin-bottom: 20px;
+}
+
+.but {
+    display: block;
+    margin-top: 20px;
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: bisque;
+    margin-bottom: 20px;
+}
+
+.but3, #del_edit_but {
+    display: block;
+    margin-top: 10px;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(26, 12, 218);
+    color: White;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    text-decoration: none; 
+    text-align: center;
+}
+
+#category {
+    padding-left: 20px; 
+}
+.sub_header {
+    margin-top: 10px;
+    margin-bottom: 10px; 
+
+}
+.but2 {
+    display: block;
+    margin-top: 10px;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(208, 209, 205);
+    color: rgb(6, 11, 88);
+    margin-bottom: 20px;
+    margin-left: 240px; 
+}
+
+
+.msg_comments {
+    display: block;
+    font-size: 20px;
+}

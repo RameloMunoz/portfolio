@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Challenge</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+
+<body>
+
+    <!--  Context:  this_challenge, this_user -->
+
+    <div id="main_container">
+
+        <div id="inner_container2">
+        
+            <div class="welcome_container">
+                <h2>Hello {{this_user.first_name}}!</h2>
+                 <div class="subwelcome">
+                    <a href="/dashboard">Dashboard</a>
+                    <a id="logout" href="/user/logout">Log Out</a>
+                </div>
+            </div>
+ 
+
+            <!-- display error messages here -->
+            {% for error in messages %}
+            <p class="errors">{{ error}}</p>
+            {% endfor %}
+
+            <h2>Challenge Details: {{this_challenge.created_by.first_name}} vs {{this_challenge.against.first_name}}</h2>
+
+            <div>
+                <p>Court: {{this_challenge.tennis_court_name}}</p>
+                <p>Court Addr: {{this_challenge.tennis_court_addr}}</p>
+                <p>Game Date: {{this_challenge.game_date}}</p>
+                <p>Game Time: {{this_challenge.game_time}}</p>
+                <p>Comments: {{this_challenge.comments}}</p>
+                <p>Status: {{this_challenge.status}}</p>
+                
+                {% if  this_challenge.status == 'Played' %}
+                    <p>Game Score: {{this_challenge.score}}</p>
+                    {% if  this_challenge.game_result == 1  %}
+                        <p>Game Result: Challenger Won </p>
+                    {% else %}  
+                        <p>Game Result: Challenger Lost the Match </p>
+                    {% endif  %}
+                {% endif %}
+
+                <p>Created By: {{this_challenge.created_by.first_name}} {{this_challenge.created_by.last_name}}</p>
+                <p>Opponent:   {{this_challenge.against.first_name}} {{this_challenge.against.last_name}}</p>
+                
+            </div>
+
+        </div> 
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register a User or LogIn</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+
+<body>
+
+    <div id="main_container">
+
+        <p class="headers" >Welcome! Let's Play Tennis</p> 
+
+        
+        <!-- display error messages here -->
+        {% for error in messages %}
+        <p class="errors">{{ error}}</p>
+        {% endfor %}
+
+        <div id="inner_container">
+            
+
+            <div id="form_register">
+                    <form action="/user/create" method="POST" name="register" class="forms">
+                        {% csrf_token %}
+                        <input type="hidden" name="which_form" value="add_user">
+                        <p class="headers" >Registration</p> 
+
+                        <div class="labels">
+                            <label  for="first_name">First Name</label>
+                            <input type="text" id="first_name" name="first_name">
+                        </div>
+                        <div class="labels">
+                            <label  for="last_name">Last Name</label>
+                            <input type="text" id="last_name" name="last_name">
+                        </div>
+
+                        <div>
+                            <p id="gender_hdr">Gender/Sex:</p>
+                            <div id="gender">
+                                
+                                <input type="radio" id="male" name="gender" value="M">
+                                <label for="male">Male</label><br>
+                                <input type="radio" id="female" name="gender" value="F">
+                                <label for="female">Female</label><br>
+                            </div>
+                        </div>
+                        <div class="labels">
+                            <label  for="city_location">City/Town</label>
+                            <input type="text" id="city_location" name="city_location">
+                        </div>
+                        <div class="labels">
+                            <label  for="birthdate">Birth Date</label>
+                            <input type="date" id="birthdate" name="birthdate">
+                        </div>
+                        <div class="labels">
+                            <label  for="usta_rating">USTA Rating (2.5 to 6.0)</label>
+                            <input type="number" id="usta_rating" name="usta_rating" step=0.5>
+                        </div>
+                        <div class="labels">
+                            <label  for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="labels">
+                            <label  for="email">Email</label>
+                            <input  type="text" name="email" id="email" ></input>
+                        </div>
+                        <div class="labels">
+                            <label  for="password">Password</label>
+                            <input  type="password" name="password" id="password" ></input>
+                        </div>
+                        <div class="labels">
+                            <label  for="password_confirm">Confirm PW</label>
+                            <input  type="password" name="password_confirm" id="password_confirm" ></input>
+                        </div>
+                        <button class='but' type="Submit">Register</button>
+
+                    </form>
+            </div> 
+
+            <div id="form_login">
+                <form action="/user/login" method="POST" name="login" class="forms">
+                    {% csrf_token %}
+                    <input type="hidden" name="which_form" value="login">
+                    <p class="headers" >LogIn</p> 
+                    
+                    <div class="labels">
+                        <label  for="email">Email</label>
+                        <input  type="text" name="email" id="email" ></input>
+                    </div>
+                    <div class="labels">
+                        <label  for="password">Password</label>
+                        <input  type="password" name="password" id="password" ></input>
+                    </div>
+                    <button class='but' type="Submit">Log In</button>
+
+                </form>
+        </div> 
+
+
+
+  
+        </div>
+
+    </div>
+
+
+</body>
+</html>

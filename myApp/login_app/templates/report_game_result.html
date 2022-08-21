@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Game Result</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+
+<body>
+
+    <!--  Context:  this_challenge, this_user -->
+
+    <div id="main_container">
+
+        <div id="inner_container2">
+
+            <div class="welcome_container">
+                <h2 id="welcome" >Hello {{this_user.first_name}}!</h2>
+                <a id="logout" href="/user/logout">Log Out</a>
+            </div>
+ 
+            <!-- display error messages here -->
+            {% for error in messages %}
+            <p class="errors">{{ error}}</p>
+            {% endfor %}
+
+            <div id="game_result_container">
+
+                    <form action="/tennis/{{this_challenge.id}}/create_result" method="POST" name="create_result" class="forms">
+                        {% csrf_token %}
+                            
+                        <h2 class="sub_header" >Report Game Result: {{this_challenge.created_by.first_name}} vs. {{this_challenge.against.first_name}} </h2>
+                
+                        <input type="hidden" id="tennis_court_name" name="tennis_court_name" value={{this_challenge.tennis_court_name}}>
+                        <input type="hidden" id="tennis_court_addr" name="tennis_court_addr" value={{this_challenge.tennis_court_addr}}>
+                        <input type="hidden" id="game_date" name="game_date" value={{this_challenge.game_date|date:"Y-m-d" }}>
+                        <input type="hidden" id="game_time" name="game_time" value={{this_challenge.game_time }}>
+                        <input type="hidden" name="comments" id="comments"   value={{this_challenge.comments}}>                       </div>
+                    
+                        <div>
+                            <label  for="game_result">Who won this game?</label>
+                            <div id="game_result">
+                                <input type="radio" id="game_result" name="game_result" value="1">
+                                <label for="game_result">Challenger</label><br>
+                                <input type="radio" id="game_result" name="game_result" value="0">
+                                <label for="game_result">Opponent</label><br>
+                            </div>
+                        </div>
+                        <div>
+                            <label  for="scores">Scores</label>
+                            <input type="text" id="score" name="score">
+                        </div>
+ 
+                        
+                        <div class="edit_buttons">
+                            <a class="cancel_but" href="/dashboard">Cancel</a>
+                            <button class='but3' type="Submit">Submit</button>
+                        </div>
+
+                    </form>
+
+                
+            </div>
+
+        </div> 
+
+    </div>
+
+</body>
+</html>
